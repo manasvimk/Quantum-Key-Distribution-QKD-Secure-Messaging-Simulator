@@ -38,4 +38,12 @@ Technologies Used:
 
 4) Cryptography (hazmat): Industry-standard AES-256 implementation.
 
-Hashlib: SHA-256 for privacy amplification.
+5)Hashlib: SHA-256 for privacy amplification.
+
+Output-
+
+<img width="810" height="512" alt="image" src="https://github.com/user-attachments/assets/c8963217-5e94-4464-afac-0263c4d4abce" />
+
+
+
+
