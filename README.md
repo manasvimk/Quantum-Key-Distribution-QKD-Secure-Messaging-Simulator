@@ -17,6 +17,10 @@ Key Features-
 
 5)AES-256 Encrypted Chat: A practical application layer that uses the quantum-generated key to encrypt and decrypt text messages using AES-CTR mode.
 
+6)Hardware Noise Simulation: Integrated a Depolarizing Error model using qiskit_aer to simulate the imperfections of real-world quantum processors (NISQ era).
+
+7)AI-Driven Threat Detection: Implemented a Machine Learning (Decision Tree) layer to analyze error patterns and distinguish between environmental decoherence and active "Intercept-and-Resend" attacks.
+
 The Protocol Logic:
 
 Quantum Phase: Alice sends qubits and  Bob measures them.
@@ -40,9 +44,21 @@ Technologies Used:
 
 5)Hashlib: SHA-256 for privacy amplification.
 
+### AI Security Diagnostics
+In real quantum networks, a high **Quantum Bit Error Rate (QBER)** can be caused by either a hacker or natural system noise. This project uses a **Decision Tree Classifier** to analyze:
+1.  **QBER Spikes:** Rapid increases in error typically indicate active measurement by Eve.
+2.  **Key Sifting Ratio:** Unexpected drops in the survival rate of qubits during basis matching.
+
+The model successfully classifies the connection state as **"NORMAL (Noise)"** or **"CRITICAL (Interception)"**, allowing for smarter automated responses than simple hard-coded thresholds.
+
+
+
 Output-
 
 <img width="810" height="512" alt="image" src="https://github.com/user-attachments/assets/c8963217-5e94-4464-afac-0263c4d4abce" />
+
+<img width="481" height="86" alt="image" src="https://github.com/user-attachments/assets/35edf18a-279d-4551-a98f-bcc699f07b52" />
+
 
 
 
