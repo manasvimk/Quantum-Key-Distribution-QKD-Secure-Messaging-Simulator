@@ -1,0 +1,30 @@
+name: Mirror to Target Repository
+
+on:
+  push:
+    branches: [ main ]  # Change to your default branch if different (e.g., master)
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Required for pushing
+
+    steps:
+    - name: Checkout source repo
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Fetch full history for accurate mirroring
+
+    - name: Push to target repository
+      uses: cpina/github-action-push-to-another-repository@main
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      with:
+        source-directory: '.'  # Push entire repo contents
+        destination-github-username: 'target-owner'  # e.g., your username or org
+        destination-repository-name: 'target-repo-name'  # e.g., my-mapped-repo
+        user-email: 'your-email@example.com'  # Your Git email
+        user-name: 'Your Name'  # Your Git name
+        target-branch: 'main'  # Target branch
+        commit-message: 'Mirror changes from ${{ github.repository }}@${{ github.sha }}'
